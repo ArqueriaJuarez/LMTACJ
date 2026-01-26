@@ -57,6 +57,31 @@ max-width:1000px;
 .atleta{
 min-width:200px;
 }
+.ficha{
+background:#020617;
+padding:30px;
+border-radius:15px;
+max-width:800px;
+margin:40px auto;
+box-shadow:0 0 15px rgba(0,0,0,.5);
+}
+
+.ficha img{
+width:200px;
+border-radius:10px;
+display:block;
+margin:auto;
+}
+
+.ficha h2{
+text-align:center;
+color:#38bdf8;
+margin-top:15px;
+}
+
+.ficha p{
+text-align:center;
+}
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -82,10 +107,10 @@ min-width:200px;
 <h2 style="margin-top:40px;">🌟 Atletas </h2>
 
 <div class="atletas-wrapper">
-<div class="atletas">
 <div class="atleta">
-<img src="https://picsum.photos/300/200?41">
-<h3>Atleta Destacado 1</h3>
+<img src="https://picsum.photos/300/200?1">
+<h3>Nombre Atleta 1</h3>
+<a href="#ficha1"><button>Ver ficha</button></a>
 </div>
 
 <div class="atleta">
@@ -174,6 +199,20 @@ min-width:200px;
 </div>
 
 <p style="margin-top:15px;">© Liga Municipal de Tiro con Arco de Ciudad Juárez</p>
+<section id="ficha1" class="ficha">
+<img src="https://picsum.photos/300/300?1">
+<h2>Nombre Atleta 1</h2>
+
+<p><strong>Edad:</strong> 15 años</p>
+<p><strong>Categoría:</strong> Juvenil</p>
+<p><strong>Modalidad:</strong> Recurvo</p>
+
+<p><strong>Logros:</strong></p>
+<p>🥇 Oro Municipal 2025</p>
+<p>🥈 Plata Estatal 2024</p>
+
+<a href="#atletas"><button style="margin-top:20px;">Volver</button></a>
+</section>
 </footer>
 
 </body>
