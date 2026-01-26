@@ -140,21 +140,22 @@ text-align:center;
 <section id="noticias">
 <h2>📰 Noticias</h2>
 
-<a href="images/Estatal Chihuahua.png" target="_blank" style="text-decoration:none;color:white;">
-  <div class="card">
-    <img src="images/Estatal Chihuahua.png" alt="Estatal de Tiro con Arco Chihuahua">
+<section id="noticias">
+<h2>📰 Noticias</h2>
+
+<div class="card" onclick="abrirModal('images/estatal-arqueria-chihuahua-2026.png')" style="cursor:pointer;">
+    <img src="images/estatal-arqueria-chihuahua-2026.png" alt="Estatal de Tiro con Arco Chihuahua">
     <h3 style="color:#38bdf8;margin-top:15px;">
       Estatal de Tiro con Arco – Selectivo CONADE 2026
     </h3>
     <p>
       📍 Estadio 20 de Noviembre<br>
-      📍 Ciudad Juárez, Chihuahua<br>
       📅 21 y 22 de febrero
     </p>
-  </div>
-</a>
+</div>
 
 </section>
+
 <div class="card">Próximo torneo Estatal 2026 – Febrero 2026</div>
 <div class="card">Atletas juarenses destacan en competencia estatal</div>
 </section>
@@ -229,6 +230,13 @@ text-align:center;
 <a href="#atletas"><button style="margin-top:20px;">Volver</button></a>
 </section>
 </footer>
+<!-- MODAL IMAGEN NOTICIA -->
+<div id="modalImagen" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:9999;">
+  
+  <span onclick="cerrarModal()" style="position:absolute; top:20px; right:30px; font-size:35px; cursor:pointer; color:white;">&times;</span>
+  
+  <img id="imagenModal" src="" style="max-width:90%; max-height:90%; border-radius:10px;">
+</div>
 
 </body>
 </html>
