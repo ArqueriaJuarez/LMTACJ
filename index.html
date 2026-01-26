@@ -15,6 +15,32 @@ footer{background:#020617;padding:20px;text-align:center}
 img{max-width:100%;border-radius:10px}
 button{padding:10px 20px;background:#38bdf8;border:none;border-radius:6px;font-weight:bold}
 
+/* Galería */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:20px;
+}
+.gallery img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+box-shadow:0 0 8px rgba(0,0,0,.4);
+}
+
+/* Atletas */
+.atletas{
+display:flex;
+gap:20px;
+overflow-x:auto;
+padding:10px 0;
+max-width:1000px;
+margin:auto;
+}
+.atleta{min-width:200px}
+
 /* MODAL */
 .modal{
 display:none;
@@ -30,14 +56,12 @@ flex-direction:column;
 z-index:9999;
 animation:fadeIn .3s ease;
 }
-
 .modal img{
 max-width:90%;
 max-height:80%;
 border-radius:10px;
 animation:zoomIn .3s ease;
 }
-
 .cerrar{
 position:absolute;
 top:20px;
@@ -46,7 +70,6 @@ font-size:40px;
 cursor:pointer;
 color:white;
 }
-
 .descargar{
 margin-top:20px;
 padding:12px 25px;
@@ -56,16 +79,8 @@ border-radius:8px;
 font-weight:bold;
 text-decoration:none;
 }
-
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
-@keyframes zoomIn{
-from{transform:scale(.8);}
-to{transform:scale(1);}
-}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes zoomIn{from{transform:scale(.8);}to{transform:scale(1);}}
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -80,49 +95,91 @@ to{transform:scale(1);}
 <a href="#inicio">Inicio</a>
 <a href="#noticias">Noticias</a>
 <a href="#galeria">Galería</a>
+<a href="#atletas">Atletas</a>
 <a href="#mision">Misión</a>
 </nav>
 </header>
+
+<section id="inicio">
+<h2>Bienvenidos</h2>
+<p>Promovemos el tiro con arco en Ciudad Juárez formando atletas con disciplina, respeto y excelencia deportiva.</p>
+</section>
 
 <section id="noticias">
 <h2>📰 Noticias</h2>
 
 <div class="card" onclick="abrirModal('images/Estatal Chihuahua.png')" style="cursor:pointer;">
-  <img src="images/Estatal Chihuahua.png" style="max-height:250px;object-fit:cover;">
-  <h3 style="color:#38bdf8;margin-top:15px;">
-    Estatal de Tiro con Arco – Selectivo CONADE 2026
-  </h3>
-  <p>📅 21 y 22 de febrero · Estadio 20 de Noviembre</p>
+<img src="images/Estatal Chihuahua.png" style="max-height:250px;object-fit:cover;">
+<h3 style="color:#38bdf8;margin-top:15px;">
+Estatal de Tiro con Arco – Selectivo CONADE 2026
+</h3>
+<p>📅 21 y 22 de febrero · Estadio 20 de Noviembre</p>
 </div>
 
+<div class="card">Próximo torneo estatal – Febrero 2026</div>
 </section>
+
+<section id="galeria">
+<h2>📸 Galería</h2>
+<div class="gallery">
+<img src="https://picsum.photos/400/300?1">
+<img src="https://picsum.photos/400/300?2">
+<img src="https://picsum.photos/400/300?3">
+</div>
+</section>
+
+<section id="atletas">
+<h2>🏹 Atletas</h2>
+<div class="atletas">
+<div class="atleta">
+<img src="https://picsum.photos/300/200?1">
+<h3>Atleta 1</h3>
+</div>
+<div class="atleta">
+<img src="https://picsum.photos/300/200?2">
+<h3>Atleta 2</h3>
+</div>
+</div>
+</section>
+
+<section id="mision">
+<h2>🎯 Misión</h2>
+<p>Desarrollar arqueros de alto nivel y fomentar valores deportivos.</p>
+</section>
+
+<footer>
+<p>Síguenos:</p>
+<div style="display:flex;justify-content:center;gap:20px;">
+<a href="https://www.facebook.com/arqueriadejuarez/" target="_blank" style="font-size:28px;color:#38bdf8;"><i class="fab fa-facebook"></i></a>
+<a href="https://www.instagram.com/arqueriajuarez/" target="_blank" style="font-size:28px;color:#38bdf8;"><i class="fab fa-instagram"></i></a>
+</div>
+<p style="margin-top:15px;">© Liga Municipal de Tiro con Arco de Ciudad Juárez</p>
+</footer>
 
 <!-- MODAL -->
 <div id="modalImagen" class="modal">
-  <span class="cerrar" onclick="cerrarModal()">&times;</span>
-  <img id="imagenModal">
-  <a id="btnDescargar" class="descargar" download>⬇ Descargar imagen</a>
+<span class="cerrar" onclick="cerrarModal()">&times;</span>
+<img id="imagenModal">
+<a id="btnDescargar" class="descargar" download>⬇ Descargar imagen</a>
 </div>
 
 <script>
 function abrirModal(src){
-  document.getElementById("modalImagen").style.display = "flex";
-  document.getElementById("imagenModal").src = src;
-  document.getElementById("btnDescargar").href = src;
+document.getElementById("modalImagen").style.display="flex";
+document.getElementById("imagenModal").src=src;
+document.getElementById("btnDescargar").href=src;
 }
-
 function cerrarModal(){
-  document.getElementById("modalImagen").style.display = "none";
+document.getElementById("modalImagen").style.display="none";
 }
-
-document.addEventListener("keydown", e => {
-  if(e.key === "Escape") cerrarModal();
+document.addEventListener("keydown",e=>{
+if(e.key==="Escape")cerrarModal();
 });
-
-document.getElementById("modalImagen").addEventListener("click", e => {
-  if(e.target.id === "modalImagen") cerrarModal();
+document.getElementById("modalImagen").addEventListener("click",e=>{
+if(e.target.id==="modalImagen")cerrarModal();
 });
 </script>
 
 </body>
 </html>
+
