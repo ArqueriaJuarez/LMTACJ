@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Liga Municipal de Tiro con Arco de Ciudad Juárez</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{margin:0;font-family:Arial;background:#0f172a;color:white}
 header{background:#020617;padding:20px;text-align:center}
@@ -13,78 +14,7 @@ section{padding:40px;text-align:center}
 footer{background:#020617;padding:20px;text-align:center}
 img{max-width:100%;border-radius:10px}
 button{padding:10px 20px;background:#38bdf8;border:none;border-radius:6px;font-weight:bold}
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-margin-top:20px;
-}
 
-.gallery img{
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:10px;
-box-shadow:0 0 8px rgba(0,0,0,.4);
-}
-
-  
-  /* atletas en linea horizontal */
-.atletas{
-display:flex !important;
-gap:20px;
-margin-top:20px;
-overflow-x:auto;
-padding-bottom:10px;
-}
-
-.atleta{
-min-width:200px;
-}
-.atletas-wrapper{
-display:flex;
-justify-content:center;
-}
-
-.atletas{
-display:flex;
-gap:20px;
-overflow-x:auto;
-padding:10px 0;
-max-width:1000px;
-}
-
-.atleta{
-min-width:200px;
-}
-.ficha{
-background:#020617;
-padding:30px;
-border-radius:15px;
-max-width:800px;
-margin:40px auto;
-box-shadow:0 0 15px rgba(0,0,0,.5);
-}
-
-.ficha img{
-width:200px;
-border-radius:10px;
-display:block;
-margin:auto;
-}
-
-.ficha h2{
-text-align:center;
-color:#38bdf8;
-margin-top:15px;
-}
-
-.ficha p{
-text-align:center;
-}
-</style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
 /* MODAL */
 .modal{
 display:none;
@@ -136,177 +66,63 @@ to{opacity:1;}
 from{transform:scale(.8);}
 to{transform:scale(1);}
 }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
 
 <body>
 
 <header>
 <img src="Logo Circulo.png" style="width:150px;margin:15px auto;display:block;">
-  <h1>🎯 Liga Municipal de Tiro con Arco de Ciudad Juárez</h1>
+<h1>🎯 Liga Municipal de Tiro con Arco de Ciudad Juárez</h1>
 <nav>
 <a href="#inicio">Inicio</a>
 <a href="#noticias">Noticias</a>
 <a href="#galeria">Galería</a>
-<a href="#atletas">Atletas</a>
 <a href="#mision">Misión</a>
 </nav>
 </header>
 
-<section id="inicio">
-<h2>Bienvenidos</h2>
-<p>Promovemos el tiro con arco en Ciudad Juárez formando atletas con disciplina, respeto y excelencia deportiva.</p>
-
-<h2 style="margin-top:40px;">🌟 Atletas </h2>
-
-<div class="atletas-wrapper">
-<div class="atleta">
-<img src="https://picsum.photos/300/200?1">
-<h3>Nombre Atleta 1</h3>
-<a href="#ficha1"><button>Ver ficha</button></a>
-</div>
-
-<div class="atleta">
-<img src="https://picsum.photos/300/200?42">
-<h3>Atleta Destacado 2</h3>
-</div>
-
-<div class="atleta">
-<img src="https://picsum.photos/300/200?43">
-<h3>Atleta 3</h3>
-</div>
-
-<div class="atleta">
-<img src="https://picsum.photos/300/200?44">
-<h3>Atleta Destacado 4</h3>
-</div>
-
-</div>
-
-</div>
-</div>
-
-<a href="atletas.html"><button>Ver todos los atletas</button></a>
-
-</section>
-
 <section id="noticias">
 <h2>📰 Noticias</h2>
 
-<div class="card" onclick="abrirModal('Estatal Chihuahua.png')" style="cursor:pointer;">
-    <img src="images/Estatal Chihuahua.png">
-    <h3 style="color:#38bdf8;margin-top:15px;">
-      Estatal de Tiro con Arco – Selectivo CONADE 2026
-    </h3>
-    <p>
-      📍 Estadio 20 de Noviembre<br>
-      📅 21 y 22 de febrero
-    </p>
+<div class="card" onclick="abrirModal('images/Estatal Chihuahua.png')" style="cursor:pointer;">
+  <img src="images/Estatal Chihuahua.png" style="max-height:250px;object-fit:cover;">
+  <h3 style="color:#38bdf8;margin-top:15px;">
+    Estatal de Tiro con Arco – Selectivo CONADE 2026
+  </h3>
+  <p>📅 21 y 22 de febrero · Estadio 20 de Noviembre</p>
 </div>
 
 </section>
 
-<div class="card">Próximo torneo Estatal 2026 – Febrero 2026</div>
-<div class="card">Atletas juarenses destacan en competencia estatal</div>
-</section>
-
-<section id="galeria">
-<h2>📸 Galerías por Evento</h2>
-
-<h3>🏹 Torneo Municipal Enero 2026</h3>
-<div class="gallery">
-<img src="https://picsum.photos/400/300?11">
-<img src="https://picsum.photos/400/300?12">
-<img src="https://picsum.photos/400/300?13">
-</div>
-
-<h3>🎯 Entrenamiento General</h3>
-<div class="gallery">
-<img src="https://picsum.photos/400/300?21">
-<img src="https://picsum.photos/400/300?22">
-<img src="https://picsum.photos/400/300?23">
-</div>
-
-<h3>🏆 Competencia Estatal</h3>
-<div class="gallery">
-<img src="https://picsum.photos/400/300?31">
-<img src="https://picsum.photos/400/300?32">
-<img src="https://picsum.photos/400/300?33">
-</div>
-
-</section>
-
-<section id="atletas">
-<h2>🏆 Atletas</h2>
-<div class="card">Nombre del atleta – Categoría</div>
-<div class="card">Nombre del atleta – Categoría</div>
-</section>
-
-<section id="mision">
-<h2>🎯 Misión</h2>
-<p>Desarrollar arqueros de alto nivel y fomentar valores deportivos.</p>
-
-<h2>👁 Visión</h2>
-<p>Ser referente nacional del tiro con arco formativo.</p>
-</section>
-
-<p>Síguenos:</p>
-
-<div style="display:flex;justify-content:center;gap:20px;margin:15px;">
-
-<a href="https://www.facebook.com/arqueriadejuarez/" target="_blank" style="font-size:28px;color:#38bdf8;">
-<i class="fab fa-facebook"></i>
-</a>
-
-<a href="https://www.instagram.com/arqueriajuarez/" target="_blank" style="font-size:28px;color:#38bdf8;">
-<i class="fab fa-instagram"></i>
-</a>
-
-</div>
-
-<p style="margin-top:15px;">© Liga Municipal de Tiro con Arco de Ciudad Juárez</p>
-<section id="ficha1" class="ficha">
-<img src="https://picsum.photos/300/300?1">
-<h2>Nombre Atleta 1</h2>
-
-<p><strong>Edad:</strong> 15 años</p>
-<p><strong>Categoría:</strong> Juvenil</p>
-<p><strong>Modalidad:</strong> Recurvo</p>
-
-<p><strong>Logros:</strong></p>
-<p>🥇 Oro Municipal 2025</p>
-<p>🥈 Plata Estatal 2024</p>
-
-<a href="#atletas"><button style="margin-top:20px;">Volver</button></a>
-</section>
-</footer>
-<!-- MODAL IMAGEN NOTICIA -->
-<div id="modalImagen" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); justify-content:center; align-items:center; z-index:9999;">
-  
-  <span onclick="cerrarModal()" style="position:absolute; top:20px; right:30px; font-size:35px; cursor:pointer; color:white;">&times;</span>
-  
-  <img id="imagenModal" src="" style="max-width:90%; max-height:90%; border-radius:10px;">
-</div>
-<script>
-function abrirModal(src) {
-    document.getElementById("modalImagen").style.display = "flex";
-    document.getElementById("imagenModal").src = src;
-}
-
-function cerrarModal() {
-    document.getElementById("modalImagen").style.display = "none";
-}
-</script>
-  <!-- MODAL IMAGEN NOTICIA -->
+<!-- MODAL -->
 <div id="modalImagen" class="modal">
-  
   <span class="cerrar" onclick="cerrarModal()">&times;</span>
-
   <img id="imagenModal">
-
-  <a id="btnDescargar" class="descargar" download>
-    ⬇ Descargar imagen
-  </a>
-
+  <a id="btnDescargar" class="descargar" download>⬇ Descargar imagen</a>
 </div>
+
+<script>
+function abrirModal(src){
+  document.getElementById("modalImagen").style.display = "flex";
+  document.getElementById("imagenModal").src = src;
+  document.getElementById("btnDescargar").href = src;
+}
+
+function cerrarModal(){
+  document.getElementById("modalImagen").style.display = "none";
+}
+
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape") cerrarModal();
+});
+
+document.getElementById("modalImagen").addEventListener("click", e => {
+  if(e.target.id === "modalImagen") cerrarModal();
+});
+</script>
 
 </body>
 </html>
