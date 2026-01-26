@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Atletas - Liga Municipal de Tiro con Arco</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{margin:0;font-family:Arial;background:#0f172a;color:white}
+header{background:#020617;padding:20px;text-align:center}
+
+.fichas{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:30px;
+max-width:1100px;
+margin:auto;
+}
+
+.ficha{
+background:#020617;
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 0 12px rgba(0,0,0,.4);
+}
+
+.ficha img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:10px;
+}
+
+button{
+margin-top:10px;
+padding:8px 16px;
+border:none;
+border-radius:8px;
+background:#38bdf8;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🏹 Fichas de Atletas</h1>
+<a href="index.html"><button>Volver al inicio</button></a>
+</header>
+
+<div class="fichas">
+
+<div class="ficha">
+<img src="https://picsum.photos/300/200?101">
+<h3>Atleta 1</h3>
+<p>Edad: 15</p>
+<p>Categoría: Juvenil</p>
+<p>Logros: Oro Municipal</p>
+</div>
+
+<div class="ficha">
+<img src="https://picsum.photos/300/200?102">
+<h3>Atleta 2</h3>
+<p>Edad: 18</p>
+<p>Categoría: Libre</p>
+<p>Logros: Plata Estatal</p>
+</div>
+
+<div class="ficha">
+<img src="https://picsum.photos/300/200?103">
+<h3>Atleta 3</h3>
+<p>Edad: 12</p>
+<p>Categoría: Infantil</p>
+<p>Logros: Campeón Regional</p>
+</div>
+
+</div>
+
+</body>
+</html>
