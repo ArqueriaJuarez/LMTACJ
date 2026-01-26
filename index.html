@@ -41,6 +41,22 @@ padding-bottom:10px;
 .atleta{
 min-width:200px;
 }
+.atletas-wrapper{
+display:flex;
+justify-content:center;
+}
+
+.atletas{
+display:flex;
+gap:20px;
+overflow-x:auto;
+padding:10px 0;
+max-width:1000px;
+}
+
+.atleta{
+min-width:200px;
+}
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -65,8 +81,8 @@ min-width:200px;
 
 <h2 style="margin-top:40px;">🌟 Atletas </h2>
 
+<div class="atletas-wrapper">
 <div class="atletas">
-
 <div class="atleta">
 <img src="https://picsum.photos/300/200?41">
 <h3>Atleta Destacado 1</h3>
@@ -90,7 +106,11 @@ min-width:200px;
 
 </div>
 
-<a href="#atletas"><button style="margin-top:20px;">Ver todos los atletas</button></a>
+</div>
+</div>
+
+<a href="#atletas">
+  <button style="margin-top:20px;">Ver todos los atletas</button></a>
 
 </section>
 
