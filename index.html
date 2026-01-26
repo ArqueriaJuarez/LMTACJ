@@ -140,11 +140,8 @@ text-align:center;
 <section id="noticias">
 <h2>📰 Noticias</h2>
 
-<section id="noticias">
-<h2>📰 Noticias</h2>
-
-<div class="card" onclick="abrirModal('images/estatal-arqueria-chihuahua-2026.png')" style="cursor:pointer;">
-    <img src="images/estatal-arqueria-chihuahua-2026.png" alt="Estatal de Tiro con Arco Chihuahua">
+<div class="card" onclick="abrirModal('Estatal Chihuahua.png')" style="cursor:pointer;">
+    <img src="images/Estatal Chihuahua.png">
     <h3 style="color:#38bdf8;margin-top:15px;">
       Estatal de Tiro con Arco – Selectivo CONADE 2026
     </h3>
@@ -247,5 +244,18 @@ function cerrarModal() {
     document.getElementById("modalImagen").style.display = "none";
 }
 </script>
+  <!-- MODAL IMAGEN NOTICIA -->
+<div id="modalImagen" class="modal">
+  
+  <span class="cerrar" onclick="cerrarModal()">&times;</span>
+
+  <img id="imagenModal">
+
+  <a id="btnDescargar" class="descargar" download>
+    ⬇ Descargar imagen
+  </a>
+
+</div>
+
 </body>
 </html>
