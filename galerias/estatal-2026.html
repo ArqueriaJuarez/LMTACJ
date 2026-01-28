@@ -39,6 +39,57 @@ color:#38bdf8;
 text-decoration:none;
 font-weight:bold;
 }
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+animation:fadeIn .3s ease;
+}
+
+.modal img{
+max-width:90%;
+max-height:80%;
+border-radius:10px;
+animation:zoomIn .3s ease;
+}
+
+.cerrar{
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+cursor:pointer;
+color:white;
+}
+
+.descargar{
+margin-top:20px;
+padding:12px 25px;
+background:#38bdf8;
+color:#020617;
+border-radius:8px;
+font-weight:bold;
+text-decoration:none;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes zoomIn{
+from{transform:scale(.8);}
+to{transform:scale(1);}
+}
 </style>
 </head>
 
@@ -50,11 +101,43 @@ font-weight:bold;
 </header>
 
 <div class="gallery">
-<img src="../images/estatal-2026/1.jpg">
-<img src="../images/estatal-2026/2.jpg">
-<img src="../images/estatal-2026/3.jpg">
-<img src="../images/estatal-2026/4.jpg">
+<img src="../images/estatal-2026/1.jpg" onclick="abrirModal(this.src)">
+<img src="../images/estatal-2026/2.jpg" onclick="abrirModal(this.src)">
+<img src="../images/estatal-2026/3.jpg" onclick="abrirModal(this.src)">
+<img src="../images/estatal-2026/4.jpg" onclick="abrirModal(this.src)">
 </div>
+<!-- MODAL IMAGEN -->
+<div id="modalImagen" class="modal">
+  <span class="cerrar" onclick="cerrarModal()">&times;</span>
+
+  <img id="imagenModal">
+
+  <a id="btnDescargar" class="descargar" download>
+    ⬇ Descargar imagen
+  </a>
+</div>
+<script>
+function abrirModal(src){
+  const modal = document.getElementById("modalImagen");
+  const img = document.getElementById("imagenModal");
+  const btn = document.getElementById("btnDescargar");
+
+  img.src = src;
+  btn.href = src;
+  modal.style.display = "flex";
+}
+
+function cerrarModal(){
+  document.getElementById("modalImagen").style.display = "none";
+}
+
+// Cerrar con tecla ESC
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    cerrarModal();
+  }
+});
+</script>
 
 </body>
 </html>
