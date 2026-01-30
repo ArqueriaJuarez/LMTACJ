@@ -113,6 +113,15 @@ text-decoration:none;
 }
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 @keyframes zoomIn{from{transform:scale(.8);}to{transform:scale(1);}}
+section h2::after{
+  content:"";
+  display:block;
+  width:80px;
+  height:3px;
+  background:linear-gradient(90deg,#38bdf8,#0ea5e9);
+  margin:10px auto;
+  border-radius:5px;
+}
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
