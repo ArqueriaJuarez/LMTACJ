@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+
+<title>I Generation | Liga Municipal de Tiro con Arco</title>
+
+<meta name="description" content="Información oficial de I Generation, afiliado a la Liga Municipal de Tiro con Arco de Ciudad Juárez.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0f172a;
+  color:white;
+}
+
+header{
+  background:#020617;
+  padding:20px;
+  text-align:center;
+}
+
+section{
+  max-width:900px;
+  margin:40px auto;
+  padding:20px;
+}
+
+.club-header{
+  text-align:center;
+}
+
+.club-header img{
+  max-width:180px;
+  margin-bottom:20px;
+}
+
+.club-info{
+  background:#020617;
+  padding:25px;
+  border-radius:15px;
+  line-height:1.7;
+}
+
+.club-info h2{
+  color:#38bdf8;
+  margin-bottom:15px;
+}
+  .btn-regresar{
+  display:inline-block;
+  margin-top:30px;
+  padding:12px 25px;
+  background:#38bdf8;
+  color:#020617;
+  border-radius:8px;
+  font-weight:bold;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.btn-regresar:hover{
+  background:#0ea5e9;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🏹 I Generation</h1>
+</header>
+
+<section>
+
+<div class="club-header">
+  <img src="../images/clubes/I Generation.png" alt="I Generation">
+</div>
+
+<div class="club-info">
+  <h2>Información General</h2>
+
+  <p><strong>Descripción:</strong> Club dedicado a la formación de arqueros desde nivel inicial hasta competitivo.</p>
+
+  <p><strong>Dirección:</strong> Estadio 20 de Noviembre, Ciudad Juárez, Chihuahua.</p>
+
+  <p><strong>Días y horarios:</strong>  
+  Lunes, miércoles y viernes de 5:00 pm a 8:00 pm.</p>
+
+  <p><strong>Presidente del club:</strong> Juan Pérez</p>
+
+  <p><strong>Teléfono:</strong> 656 123 4567</p>
+
+  <p><strong>Email:</strong> I Generation@email.com</p>
+</div>
+
+</section>
+<a href="../index.html" class="btn-regresar">
+  ⬅ Regresar al inicio
+</a>
+</body>
+</html>
