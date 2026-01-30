@@ -345,18 +345,21 @@ section h2::after{
 </div>
 
 <script>
+let indiceSlide = 0;
+
 function abrirModal(src){
-document.getElementById("modalImagen").style.display="flex";
-document.getElementById("imagenModal").src=src;
-document.getElementById("btnDescargar").href=src;
+  document.getElementById("modalImagen").style.display="flex";
+  document.getElementById("imagenModal").src=src;
+  document.getElementById("btnDescargar").href=src;
 }
+
 function cerrarModal(){
-document.getElementById("modalImagen").style.display="none";
+  document.getElementById("modalImagen").style.display="none";
 }
+
 document.getElementById("modalImagen").addEventListener("click", e => {
   if (e.target.id === "modalImagen") cerrarModal();
-
-  let indiceSlide = 0;
+});
 
 function moverSlide(direccion){
   const track = document.querySelector(".carousel-track");
@@ -369,9 +372,7 @@ function moverSlide(direccion){
 
   track.style.transform = `translateX(-${indiceSlide * 100}%)`;
 }
-
 </script>
-
 </body>
 </html>
 
