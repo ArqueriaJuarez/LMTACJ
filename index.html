@@ -192,6 +192,50 @@ section h2::after{
   .slide img{ height:300px; }
   .slide-text h3{ font-size:1.3rem; }
 }
+*{
+  box-sizing:border-box;
+}
+
+html, body{
+  overflow-x:hidden;
+}
+  /* === CARRUSEL OPTIMIZADO PARA CELULAR === */
+@media(max-width:768px){
+  .slide img{
+    height:240px;
+  }
+
+  .slide-text{
+    bottom:20px;
+  }
+
+  .slide-text h3{
+    font-size:1.1rem;
+    line-height:1.3;
+  }
+
+  .slide-text p{
+    font-size:.9rem;
+  }
+
+  .carousel-btn{
+    font-size:22px;
+    padding:8px 12px;
+  }
+}
+  @media(max-width:768px){
+  .atleta-card img{
+    height:180px;
+  }
+
+  .atleta-card h3{
+    font-size:1rem;
+  }
+
+  button{
+    width:100%;
+  }
+}
 
 </style>
 
