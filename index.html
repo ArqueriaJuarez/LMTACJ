@@ -354,6 +354,20 @@ document.getElementById("modalImagen").addEventListener("click", e => {
 document.getElementById("modalImagen").addEventListener("click",e=>{
 if(e.target.id==="modalImagen")cerrarModal();
 });
+  let indiceSlide = 0;
+
+function moverSlide(direccion){
+  const track = document.querySelector(".carousel-track");
+  const slides = document.querySelectorAll(".slide");
+
+  indiceSlide += direccion;
+
+  if(indiceSlide < 0) indiceSlide = slides.length - 1;
+  if(indiceSlide >= slides.length) indiceSlide = 0;
+
+  track.style.transform = `translateX(-${indiceSlide * 100}%)`;
+}
+
 </script>
 
 </body>
