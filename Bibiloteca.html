@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Biblioteca | Liga Municipal de Tiro con Arco de Ciudad Juárez</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Biblioteca oficial de la Liga Municipal de Tiro con Arco de Ciudad Juárez. Reglamentos, anexos técnicos, libros y documentos oficiales.">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0f172a;
+  color:white;
+}
+
+header{
+  background:#020617;
+  padding:20px;
+  text-align:center;
+}
+
+nav a{
+  color:#38bdf8;
+  margin:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+section{
+  padding:40px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.biblioteca-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.doc-card{
+  background:#020617;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 0 10px rgba(0,0,0,.5);
+  transition:.3s;
+}
+
+.doc-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 18px rgba(56,189,248,.6);
+}
+
+.doc-card h3{
+  color:#38bdf8;
+  margin-bottom:10px;
+}
+
+.doc-card a{
+  display:inline-block;
+  margin-top:10px;
+  padding:10px 15px;
+  background:#38bdf8;
+  color:#020617;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+footer{
+  background:#020617;
+  padding:20px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📚 Biblioteca</h1>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="biblioteca.html">Biblioteca</a>
+  </nav>
+</header>
+
+<section>
+  <h2>📘 Reglamentos</h2>
+
+  <div class="biblioteca-grid">
+
+    <div class="doc-card">
+      <h3>Reglamento World Archery</h3>
+      <p>Reglamento oficial internacional de tiro con arco.</p>
+      <a href="biblioteca/reglamentos/reglamento-world-archery.pdf" target="_blank">
+        📄 Ver / Descargar
+      </a>
+    </div>
+
+    <div class="doc-card">
+      <h3>Reglamento Nacional CONADE</h3>
+      <p>Normativa vigente para competencias nacionales.</p>
+      <a href="biblioteca/reglamentos/reglamento-conade.pdf" target="_blank">
+        📄 Ver / Descargar
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>📗 Anexos Técnicos</h2>
+
+  <div class="biblioteca-grid">
+
+    <div class="doc-card">
+      <h3>Anexo Técnico CONADE 2026</h3>
+      <p>Especificaciones técnicas oficiales.</p>
+      <a href="biblioteca/anexos-tecnicos/anexo-conade-2026.pdf" target="_blank">
+        📄 Ver / Descargar
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>📕 Libros de Iniciación</h2>
+
+  <div class="biblioteca-grid">
+
+    <div class="doc-card">
+      <h3>Introducción al Tiro con Arco</h3>
+      <p>Guía básica para nuevos arqueros.</p>
+      <a href="biblioteca/libros/iniciacion-tiro-con-arco.pdf" target="_blank">
+        📄 Ver / Descargar
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© Liga Municipal de Tiro con Arco de Ciudad Juárez</p>
+</footer>
+
+</body>
+</html>
