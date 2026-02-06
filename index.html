@@ -590,6 +590,9 @@ function moverSlide(direccion){
 
   track.style.transform = `translateX(-${indiceSlide * 100}%)`;
 }
+  let intervalo = setInterval(() => {
+  moverSlide(1);
+}, 5000); // cambia cada 5 segundos
 </script>
 </body>
 </html>
