@@ -43,7 +43,14 @@ margin:15px 0;
 color:#38bdf8;
 }
   body{margin:0;font-family:Arial;background:#0f172a;color:white}
-header{background:#020617;padding:20px;text-align:center}
+header{
+  background:#020617;
+  padding:20px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
 nav a{color:#38bdf8;margin:10px;text-decoration:none;font-weight:bold}
 section{padding:40px;text-align:center}
 .card{background:#020617;padding:20px;margin:15px;border-radius:10px}
@@ -328,12 +335,6 @@ html, body{
 .aliados-logos img:hover{
   filter:grayscale(0);
   transform:scale(1.05);
-}
-
-  header{
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
   .carousel-indicators{
