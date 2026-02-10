@@ -628,8 +628,8 @@ function cerrarModal(){
   document.getElementById("modalImagen").style.display="none";
 }
 
-document.getElementById("modalImagen").addEventListener("click", e => {
-  if (e.target.id === "modalImagen") cerrarModal();
+document.getElementById("modalImagen").parentElement.addEventListener("click", e => {
+  if (e.target.classList.contains("modal")) cerrarModal();
 });
 
 function moverSlide(direccion){
