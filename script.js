@@ -2,16 +2,16 @@
 let indiceSlide = 0;
 
 function abrirModal(src){
-  document.getElementById("modalImagen").style.display="flex";
-  document.getElementById("imagenModal").src=src;
-  document.getElementById("btnDescargar").href=src;
+  document.getElementById("modalImagen").style.display = "flex";
+  document.getElementById("imagenModal").src = src;
+  document.getElementById("btnDescargar").href = src;
 }
 
 function cerrarModal(){
-  document.getElementById("modalImagen").style.display="none";
+  document.getElementById("modalImagen").style.display = "none";
 }
 
-document.getElementById("modalImagen").parentElement.addEventListener("click", e => {
+document.querySelector(".modal").addEventListener("click", e => {
   if (e.target.classList.contains("modal")) cerrarModal();
 });
 
@@ -26,7 +26,9 @@ function moverSlide(direccion){
 
   track.style.transform = `translateX(-${indiceSlide * 100}%)`;
 }
-  let intervalo = setInterval(() => {
+
+setInterval(() => {
   moverSlide(1);
-}, 5000); // cambia cada 5 segundos  
+}, 5000);
+
 </script>
