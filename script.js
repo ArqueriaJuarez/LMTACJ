@@ -29,3 +29,21 @@ function moverSlide(direccion){
 setInterval(() => {
   moverSlide(1);
 }, 5000);
+fetch("https://opensheet.elk.sh/ID_DE_TU_HOJA/Hoja1")
+  .then(res => res.json())
+  .then(data => {
+    const track = document.querySelector(".carousel-track");
+    track.innerHTML = "";
+
+    data.forEach(noticia => {
+      track.innerHTML += `
+        <div class="slide" onclick="abrirModal('${noticia.imagen}')">
+          <img src="${noticia.imagen}" alt="${noticia.titulo}">
+          <div class="slide-text">
+            <h3>${noticia.titulo}</h3>
+            <p>${noticia.fecha}</p>
+          </div>
+        </div>
+      `;
+    });
+  });
