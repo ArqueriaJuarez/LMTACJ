@@ -1,4 +1,3 @@
-<script>
 let indiceSlide = 0;
 
 function abrirModal(src){
@@ -30,5 +29,3 @@ function moverSlide(direccion){
 setInterval(() => {
   moverSlide(1);
 }, 5000);
-
-</script>
