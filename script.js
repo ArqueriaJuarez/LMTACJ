@@ -70,6 +70,4 @@ function manejarSwipe() {
     moverSlide(-1); // swipe derecha → anterior
   }
 }
-.carousel{
-  touch-action: pan-y;
-}
+
