@@ -64,9 +64,9 @@ function manejarSwipe() {
   const distancia = startX - endX;
 
   // Sensibilidad (entre 40 y 70 es ideal)
-  if (distancia > 50) {
+  if (distancia > 40) {
     moverSlide(1); // swipe izquierda → siguiente
-  } else if (distancia < -50) {
+  } else if (distancia < -40) {
     moverSlide(-1); // swipe derecha → anterior
   }
 }
