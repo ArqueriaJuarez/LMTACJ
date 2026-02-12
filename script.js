@@ -43,3 +43,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   track.style.transform = "translateX(0)";
 });
+// === SOPORTE SWIPE PARA CELULAR ===
+let startX = 0;
+let endX = 0;
+
+const carousel = document.querySelector(".carousel");
+
+if (carousel) {
+  carousel.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener("touchend", e => {
+    endX = e.changedTouches[0].clientX;
+    manejarSwipe();
+  });
+}
+
+function manejarSwipe() {
+  const distancia = startX - endX;
+
+  // Sensibilidad (entre 40 y 70 es ideal)
+  if (distancia > 50) {
+    moverSlide(1); // swipe izquierda → siguiente
+  } else if (distancia < -50) {
+    moverSlide(-1); // swipe derecha → anterior
+  }
+}
+
