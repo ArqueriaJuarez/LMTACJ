@@ -18,17 +18,15 @@ if(modal){
 }
 
 function moverSlide(direccion){
-  const track = document.querySelector(".carousel-track");
   const slides = document.querySelectorAll(".slide");
-
-  if(!track || slides.length === 0) return;
+  if(slides.length === 0) return;
 
   indiceSlide += direccion;
 
   if(indiceSlide < 0) indiceSlide = slides.length - 1;
   if(indiceSlide >= slides.length) indiceSlide = 0;
 
-  track.style.transform = `translateX(-${indiceSlide * 100}%)`;
+  actualizarCarrusel();
 }
 
 
@@ -71,3 +69,37 @@ function manejarSwipe() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".slide");
+  const indicatorsContainer = document.querySelector(".carousel-indicators");
+
+  if (!slides.length || !indicatorsContainer) return;
+
+  indicatorsContainer.innerHTML = "";
+
+  slides.forEach((_, index) => {
+    const dot = document.createElement("span");
+    if (index === 0) dot.classList.add("active");
+
+    dot.addEventListener("click", () => {
+      indiceSlide = index;
+      actualizarCarrusel();
+    });
+
+    indicatorsContainer.appendChild(dot);
+  });
+
+  actualizarCarrusel();
+});
+
+function actualizarCarrusel(){
+  const track = document.querySelector(".carousel-track");
+  const dots = document.querySelectorAll(".carousel-indicators span");
+
+  track.style.transform = `translateX(-${indiceSlide * 100}%)`;
+
+  dots.forEach(dot => dot.classList.remove("active"));
+  if (dots[indiceSlide]) {
+    dots[indiceSlide].classList.add("active");
+  }
+}
