@@ -123,5 +123,30 @@
     </button>
   </div>
 </div>
+  <script>
+  let terminosAceptados = false;
+
+  function abrirModal() {
+    document.getElementById("modalTerminos").style.display = "block";
+  }
+
+  function cerrarModal() {
+    document.getElementById("modalTerminos").style.display = "none";
+  }
+
+  function aceptarTerminos() {
+    terminosAceptados = true;
+    document.getElementById("checkTerminos").checked = true;
+    cerrarModal();
+  }
+
+  function validarRegistro() {
+    if (!terminosAceptados) {
+      abrirModal();
+      return false;
+    }
+    return true;
+  }
+</script>
 </body>
 </html>
