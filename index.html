@@ -5,23 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LMTACJ | Liga Municipal de Tiro con Arco</title>
     
-    <!-- Fuentes de Google para un look más moderno -->
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     
-    <!-- Iconos para redes sociales y botones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
     <style>
         /* === VARIABLES DE COLOR === */
         :root {
-            --bg-color: #0f172a;       /* Fondo principal oscuro */
-            --nav-bg: #020617;         /* Fondo del menú y tarjetas */
-            --primary: #38bdf8;        /* Azul neón principal */
-            --primary-hover: #0ea5e9;  /* Azul más oscuro para hover */
-            --text-light: #f8fafc;     /* Texto blanco/gris claro */
-            --text-muted: #94a3b8;     /* Texto secundario */
+            --bg-color: #0f172a;       
+            --nav-bg: #020617;         
+            --primary: #38bdf8;        
+            --primary-hover: #0ea5e9;  
+            --text-light: #f8fafc;     
+            --text-muted: #94a3b8;     
         }
 
         /* === RESET BÁSICO === */
@@ -41,7 +38,7 @@
 
         /* === NAVEGACIÓN (HEADER) === */
         header {
-            background-color: rgba(2, 6, 23, 0.95); /* Ligeramente transparente */
+            background-color: rgba(2, 6, 23, 0.95);
             position: fixed;
             width: 100%;
             top: 0;
@@ -66,8 +63,9 @@
             text-decoration: none;
         }
 
+        /* Logo en el menú (pequeño) */
         .logo img {
-            width: 50px;
+            width: 45px;
             height: auto;
         }
 
@@ -102,20 +100,29 @@
 
         /* === SECCIÓN HERO (PORTADA) === */
         .hero {
-            height: 100vh; /* Ocupa toda la pantalla */
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(2, 6, 23, 0.8), rgba(15, 23, 42, 0.9)), 
+            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(15, 23, 42, 0.95)), 
                         url('https://images.unsplash.com/photo-1596409890479-7c9802421319?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
             padding: 0 20px;
-            margin-top: 0; 
         }
 
         .hero-content {
             max-width: 800px;
             animation: fadeIn 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Logo central en la portada (grande) */
+        .hero-logo {
+            width: 150px;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.3));
         }
 
         .hero-content h1 {
@@ -141,7 +148,7 @@
             background-color: var(--primary);
             color: var(--nav-bg);
             padding: 15px 35px;
-            border-radius: 50px; /* Botón redondeado más moderno */
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
             font-size: 1.1rem;
@@ -158,13 +165,16 @@
         /* === RESPONSIVO === */
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* Ocultamos los links en móvil por ahora */
+                display: none; 
             }
             .hero-content h1 {
                 font-size: 2.2rem;
             }
             .hero-content p {
                 font-size: 1rem;
+            }
+            .hero-logo {
+                width: 120px;
             }
         }
 
@@ -180,8 +190,8 @@
     <header>
         <nav class="navbar">
             <a href="#" class="logo">
-                <!-- Puedes cambiar el src por "Logo Circulo.png" -->
-                <img src="https://cdn-icons-png.flaticon.com/512/3067/3067160.png" alt="Logo LMTACJ">
+                <!-- Logo pequeño en la barra de navegación -->
+                <img src="Logo Circulo.png" alt="Logo LMTACJ">
                 <span>Liga <b>Municipal</b></span>
             </a>
             <div class="nav-links">
@@ -191,13 +201,15 @@
                 <a href="#atletas">Atletas</a>
                 <a href="#clubes">Clubes</a>
             </div>
-            <!-- Aquí agregaremos después el botón de menú para móvil -->
         </nav>
     </header>
 
     <!-- PORTADA (HERO) -->
     <section class="hero" id="inicio">
         <div class="hero-content">
+            <!-- Logo principal y centrado -->
+            <img src="Logo Circulo.png" alt="Logo Liga Municipal de Tiro con Arco" class="hero-logo">
+            
             <h1>Pasión por la <span>Arquería</span> en Ciudad Juárez</h1>
             <p>Formamos atletas con disciplina, respeto y excelencia deportiva. Únete a la Liga Municipal de Tiro con Arco y eleva tu nivel al máximo.</p>
             <a href="#noticias" class="btn-primary">Últimas Noticias</a>
