@@ -1,625 +1,208 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Liga Municipal de Tiro con Arco de Ciudad Juárez | Arquería Oficial</title>
-  <meta name="keywords" content="tiro con arco Ciudad Juárez, arquería Juárez, liga municipal tiro con arco, arqueros Chihuahua, CONADE arquería">
-<meta name="author" content="Liga Municipal de Tiro con Arco de Ciudad Juárez">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMTACJ | Liga Municipal de Tiro con Arco</title>
+    
+    <!-- Fuentes de Google para un look más moderno -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Iconos para redes sociales y botones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<link rel="icon" href="Logo Circulo.ico" type="image/x-icon">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* === VARIABLES DE COLOR === */
+        :root {
+            --bg-color: #0f172a;       /* Fondo principal oscuro */
+            --nav-bg: #020617;         /* Fondo del menú y tarjetas */
+            --primary: #38bdf8;        /* Azul neón principal */
+            --primary-hover: #0ea5e9;  /* Azul más oscuro para hover */
+            --text-light: #f8fafc;     /* Texto blanco/gris claro */
+            --text-muted: #94a3b8;     /* Texto secundario */
+        }
 
-<style>
-.atletas-destacados{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:1000px;
-margin:30px auto;
-}
+        /* === RESET BÁSICO === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-.atleta-card{
-background:#020617;
-border-radius:15px;
-padding:15px;
-box-shadow:0 0 12px rgba(0,0,0,.5);
-transition:.3s;
-}
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
 
-.atleta-card:hover{
-transform:translateY(-5px);
-box-shadow:0 0 20px rgba(56,189,248,.6);
-}
+        /* === NAVEGACIÓN (HEADER) === */
+        header {
+            background-color: rgba(2, 6, 23, 0.95); /* Ligeramente transparente */
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+        }
 
-.atleta-card img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:10px;
-}
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.atleta-card h3{
-margin:15px 0;
-color:#38bdf8;
-}
-  body{
-  margin:0;
-  font-family:Arial;
-  background:#0f172a;
-  color:white;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
 
-header{
-  background:#020617;
-  padding:20px;
-  text-align:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-nav a{color:#38bdf8;margin:10px;text-decoration:none;font-weight:bold}
-section{padding:40px;text-align:center}
-.card{background:#020617;padding:20px;margin:15px;border-radius:10px}
-footer{background:#020617;padding:20px;text-align:center}
-img{max-width:100%;border-radius:10px}
-button{padding:10px 20px;background:#38bdf8;border:none;border-radius:6px;font-weight:bold}
+        .logo img {
+            width: 50px;
+            height: auto;
+        }
 
-/* Galería */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-margin-top:20px;
-}
-.gallery img{
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:10px;
-box-shadow:0 0 8px rgba(0,0,0,.4);
-}
+        .logo span {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
 
-/* Atletas */
+        .logo span b {
+            color: var(--primary);
+        }
 
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:9999;
-animation:fadeIn .3s ease;
-}
-.modal img{
-max-width:90%;
-max-height:80%;
-border-radius:10px;
-animation:zoomIn .3s ease;
-}
-.cerrar{
-position:absolute;
-top:20px;
-right:30px;
-font-size:40px;
-cursor:pointer;
-color:white;
-}
-.descargar{
-margin-top:20px;
-padding:12px 25px;
-background:#38bdf8;
-color:#020617;
-border-radius:8px;
-font-weight:bold;
-text-decoration:none;
-}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-@keyframes zoomIn{from{transform:scale(.8);}to{transform:scale(1);}}
-section h2::after{
-  content:"";
-  display:block;
-  width:80px;
-  height:3px;
-  background:linear-gradient(90deg,#38bdf8,#0ea5e9);
-  margin:10px auto;
-  border-radius:5px;
-}
-  /* NOTICIAS CARRUSEL */
-.noticias-carrusel{
-  padding:40px 0;
-}
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
 
-.carousel{
-  position:relative;
-  width:100%;
-  overflow:hidden;
-  margin-top:30px;
-}
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
 
-.carousel-track{
-  display:flex;
-  transition:transform .5s ease;
-}
+        .nav-links a:hover {
+            color: var(--primary);
+        }
 
-.slide{
-  min-width:100%;
-  position:relative;
-  cursor:pointer;
-}
+        /* === SECCIÓN HERO (PORTADA) === */
+        .hero {
+            height: 100vh; /* Ocupa toda la pantalla */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(2, 6, 23, 0.8), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1596409890479-7c9802421319?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            padding: 0 20px;
+            margin-top: 0; 
+        }
 
-.slide img{
-  width:100%;
-  height:280px;
-  object-fit:cover;
-  filter:brightness(.65);
-}
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1s ease-in-out;
+        }
 
-.slide-text{
-  position:absolute;
-  bottom:20px; /* ← antes era 40px */
-  left:50%;
-  transform:translateX(-50%);
-  text-align:center;
-  max-width:90%;
-}
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
 
-.slide-text h3{
-  color:#38bdf8;
-  font-size:1.4rem;
-  margin-bottom:10px;
-}
+        .hero-content h1 span {
+            color: var(--primary);
+        }
 
-.slide-text p{
-  font-size:1.1rem;
-}
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
 
-/* Botones */
-.carousel-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  background:rgba(2,6,23,.7);
-  color:white;
-  border:none;
-  font-size:32px;
-  padding:10px 18px;
-  cursor:pointer;
-  border-radius:50%;
-  z-index:10;
-}
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--nav-bg);
+            padding: 15px 35px;
+            border-radius: 50px; /* Botón redondeado más moderno */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+        }
 
-.carousel-btn.prev{ left:20px; }
-.carousel-btn.next{ right:20px; }
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.6);
+        }
 
-.carousel-btn:hover{
-  background:#38bdf8;
-  color:#020617;
-}
+        /* === RESPONSIVO === */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Ocultamos los links en móvil por ahora */
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
 
-/* Responsive */
-@media(max-width:768px){
-  .slide img{ height:300px; }
-  .slide-text h3{ font-size:1.3rem; }
-}
-*{
-  box-sizing:border-box;
-}
-
-html, body{
-  overflow-x:hidden;
-}
-  /* === CARRUSEL OPTIMIZADO PARA CELULAR === */
-@media(max-width:768px){
-  .slide img{
-    height:240px;
-  }
-
-  .slide-text{
-    bottom:20px;
-  }
-
-  .slide-text h3{
-    font-size:1.1rem;
-    line-height:1.3;
-  }
-
-  .slide-text p{
-    font-size:.9rem;
-  }
-
-  .carousel-btn{
-    font-size:22px;
-    padding:8px 12px;
-  }
-}
-  @media(max-width:768px){
-  .atleta-card img{
-    height:180px;
-  }
-
-  .atleta-card h3{
-    font-size:1rem;
-  }
-
-  button{
-    width:100%;
-  }
-}
-@media(max-width:480px){
-  .slide img{ height:200px; }
-}
-  .evento{
-  background:#020617;
-  border-radius:15px;
-  padding:15px;
-  text-align:center;
-  text-decoration:none;
-  color:white;
-  box-shadow:0 0 12px rgba(0,0,0,.5);
-  transition:.3s;
-}
-
-.evento h3{
-  margin-top:12px;
-  font-size:1rem;
-  color:#38bdf8;
-}
-
-.evento:hover{
-  transform:translateY(-6px);
-  box-shadow:0 0 20px rgba(56,189,248,.6);
-}
-  /* CLUBES AFILIADOS */
-.clubes-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:25px;
-  max-width:1000px;
-  margin:30px auto 0;
-}
-
-.club-card{
-  background:#020617;
-  border-radius:15px;
-  padding:20px;
-  text-align:center;
-  box-shadow:0 0 12px rgba(0,0,0,.4);
-  transition:.3s;
-  text-decoration:none;
-  color:white;
-}
-
-.club-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 20px rgba(56,189,248,.6);
-}
-
-.club-card img{
-  max-width:140px;
-  height:140px;
-  object-fit:contain;
-  margin-bottom:15px;
-}
-
-.club-card h3{
-  color:#38bdf8;
-  font-size:1.1rem;
-}
-/* === ALIADOS INSTITUCIONALES === */
-.aliados{
-  background:#020617;
-  padding:30px 20px;
-  margin-top:40px;
-}
-
-.aliados h3{
-  text-align:center;
-  color:#38bdf8;
-  margin-bottom:25px;
-}
-
-.aliados-logos{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:35px;
-}
-
-.aliados-logos img{
-  max-height:70px;
-  filter:grayscale(100%);
-  transition:.3s ease;
-}
-
-.aliados-logos img:hover{
-  filter:grayscale(0);
-  transform:scale(1.05);
-}
-
-  .carousel-indicators{
-  text-align:center;
-  margin-top:15px;
-}
-.carousel-indicators span{
-  display:inline-block;
-  width:10px;
-  height:10px;
-  background:#38bdf8;
-  margin:0 5px;
-  border-radius:50%;
-  cursor:pointer;
-  opacity:0.5;
-  transition:.3s;
-}
-.carousel-indicators .active{
-  opacity:1;
-}
-
-  @media(max-width:768px){
-  .slide img{
-    height:240px;
-  }
-}
- section{
-  scroll-margin-top:120px;
-}
-
-.carousel{
-  max-width:1200px;
-  margin:30px auto;
-  border-radius:15px;
-}
-.carousel-track{
-  will-change: transform;
-}
-  @media(max-width:768px){
-  .carousel-btn{
-    display:none;
-  }
-    .carousel{
-  touch-action: pan-y;
-}
-}
-</style>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-<img src="Logo Circulo.png" style="width:150px;margin:15px auto;display:block;">
-<h1>🎯 Liga Municipal de Tiro con Arco de Ciudad Juárez</h1>
-<nav>
-  <a href="#inicio">Inicio</a>
-<a href="noticias.html">Noticias</a>
-  <a href="#galeria">Galería</a>
-  <a href="#destacados">Atletas</a>
-  <a href="biblioteca.html">Biblioteca</a>
-  <a href="mision-vision.html">Misión y Visión</a>
-  <a href="registro.html">Registro Atleta</a>
-</nav>
-</header>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <!-- Puedes cambiar el src por "Logo Circulo.png" -->
+                <img src="https://cdn-icons-png.flaticon.com/512/3067/3067160.png" alt="Logo LMTACJ">
+                <span>Liga <b>Municipal</b></span>
+            </a>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#noticias">Noticias</a>
+                <a href="#galeria">Galería</a>
+                <a href="#atletas">Atletas</a>
+                <a href="#clubes">Clubes</a>
+            </div>
+            <!-- Aquí agregaremos después el botón de menú para móvil -->
+        </nav>
+    </header>
 
-<section id="noticias" class="noticias-carrusel">
-  <h2>📰 Noticias Destacadas</h2>
-
-  <div class="carousel">
-
-    <div class="carousel-track">
-
-      <a href="noticias/estatal-conade-2026.html" class="slide">
-        <img src="images/Estatal Chihuahua.png" alt="Estatal Chihuahua CONADE 2026">
-        <div class="slide-text">
-          <h3>Estatal de Tiro con Arco – Selectivo CONADE 2026</h3>
-          <p>📅 21 y 22 de febrero · Estadio 20 de Noviembre</p>
+    <!-- PORTADA (HERO) -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Pasión por la <span>Arquería</span> en Ciudad Juárez</h1>
+            <p>Formamos atletas con disciplina, respeto y excelencia deportiva. Únete a la Liga Municipal de Tiro con Arco y eleva tu nivel al máximo.</p>
+            <a href="#noticias" class="btn-primary">Últimas Noticias</a>
         </div>
-      </a>
+    </section>
 
-      <a href="noticias/nueva-piel-2026.html" class="slide">
-        <img src="images/Nueva Piel.png" alt="Nueva Piel 2026">
-        <div class="slide-text">
-          <h3>Nueva Piel 2026</h3>
-        </div>
-      </a>
-
-      <a href="noticias/Archery2026.html" class="slide">
-        <img src="images/Archery2026.jpg">
-        <div class="slide-text">
-          <h3>Archery Fest 2026</h3>
-        </div>
-      </a>
-
-    </div>
-
-    <!-- CONTROLES -->
-    <button class="carousel-btn prev" onclick="moverSlide(-1)">❮</button>
-    <button class="carousel-btn next" onclick="moverSlide(1)">❯</button>
-
-  </div>
-  <div class="carousel-indicators"></div>
-  <!-- BOTÓN DE NOTICIAS -->
-  <a href="noticias.html">
-    <button style="margin-top:25px;">🗂 Ver todas las noticias</button>
-  </a>
-
-</section>
-
-<section id="galeria">
-<h2>📸 Galerías por Evento</h2>
-
-<div class="gallery">
-
-  <!-- Evento 1 -->
-  <a href="galerias/torneo-enero-2026.html" class="evento">
-    <img src="images/torneo-enero/1.jpg">
-    <h3>🏹 Torneo Municipal – Enero 2026</h3>
-  </a>
-
-  <!-- Evento 2 -->
-  <a href="galerias/estatal-2026.html" class="evento">
-    <img src="images/estatal-2026/1.jpg">
-    <h3>🎯 Estatal Chihuahua – CONADE 2026</h3>
-  </a>
-
-  <!-- Evento 3 -->
- <a href="galerias/entrenamiento-general.html" class="evento">
-    <img src="images/entrenamiento/1.jpg">
-    <h3>🏹 Entrenamiento General</h3>
-  </a>
-  
-<!-- Evento 4 -->
-  <a href="galerias/selectivo-municipal.html" class="evento">
-    <img src="images/selectivo-municipal/1.jpg">
-    <h3>🎯 Selectivo Municipal</h3>
-  </a>
-
-</div>
-</section>
-   <section id="destacados">
-  <h2>🌟 Atletas Destacados 🌟</h2>
- <p>
-    Promovemos el tiro con arco en Ciudad Juárez formando atletas con disciplina,
-    respeto y excelencia deportiva.
-  </p>
-
-<div class="atletas-destacados">
-
-  <div class="atleta-card">
-    <img src="images/atletas/juan.jpg">
-    <h3>Juan Pérez</h3>
-    <a href="fichas/atleta-juan-perez.html">
-      <button>Ver ficha</button>
-    </a>
-  </div>
-
-  <div class="atleta-card">
-    <img src="images/atletas/maria.jpg">
-    <h3>María López</h3>
-    <a href="fichas/atleta-maria-lopez.html">
-      <button>Ver ficha</button>
-    </a>
-  </div>
-
-  <div class="atleta-card">
-    <img src="images/atletas/atleta3.jpg">
-    <h3>Atleta 3</h3>
-    <button>Ver ficha</button>
-  </div>
-
-  <div class="atleta-card">
-    <img src="images/atletas/atleta4.jpg">
-    <h3>Atleta 4</h3>
-    <button>Ver ficha</button>
-  </div>
-
-</div>
-
-<a href="atletas.html">
-  <button style="margin-top:25px;">🏹 Ver todos los atletas</button>
-</a>
-
-</section>
-
-  <section id="clubes">
-  <h2>🏹 Nuestros Clubes Afiliados</h2>
-  <p>Clubes oficialmente afiliados a la Liga Municipal de Tiro con Arco de Ciudad Juárez.</p>
-
-  <div class="clubes-grid">
-
-    <!-- Club 1 -->
-    <a href="clubes/MiKA Archery Club.html" class="club-card">
-      <img src="images/Mika.png" alt="MiKA Archery Club">
-      <h3>MiKA Archery Club</h3>
-    </a>
-
-    <!-- Club 2 -->
-    <a href="clubes/Sweet Spot.html" class="club-card">
-      <img src="images/Sweetspot.png" alt="Sweet Spot">
-      <h3>Sweet Spot</h3>
-    </a>
-
-    <!-- Club 3 -->
-    <a href="clubes/Avila.html" class="club-card">
-      <img src="images/Avila.png" alt="Avila Archery Club">
-      <h3>Avila Archery Club</h3>
-    </a>
-    
-<!-- Club 4 -->
-    <a href="clubes/EEDITA.html" class="club-card">
-      <img src="images/Eedita.png" alt="EEDITA">
-      <h3>EEDITA</h3>
-    </a>
-
-    <!-- Club 5 -->
-    <a href="clubes/Igeneration.html" class="club-card">
-      <img src="images/Igeneration.png" alt="I Generation">
-      <h3>I Generation</h3>
-</a>
-
-    <!-- Club 6 -->
-    <a href="clubes/Club Compadres.html" class="club-card">
-      <img src="images/Compadres.png" alt="Club Compadres">
-      <h3>Club Compadres</h3>
-    </a>
-
-     <a href="clubes/Kokopelli.html" class="club-card">
-      <img src="images/Kokopelli.png" alt="Kokopelli">
-      <h3>CocoPeli</h3>
-       </a>
-     
-  </div>
-</section>
-
-
-<footer>
-<p>Síguenos:</p>
-<div style="display:flex;justify-content:center;gap:20px;">
-<a href="https://www.facebook.com/arqueriadejuarez/" target="_blank" style="font-size:28px;color:#38bdf8;"><i class="fab fa-facebook"></i></a>
-<a href="https://www.instagram.com/arqueriajuarez/" target="_blank" style="font-size:28px;color:#38bdf8;"><i class="fab fa-instagram"></i></a>
-</div>
-<p style="margin-top:15px;">© Liga Municipal de Tiro con Arco de Ciudad Juárez</p>
-</footer>
-
-<!-- MODAL -->
-<div id="modalImagen" class="modal">
-<span class="cerrar" onclick="cerrarModal()">&times;</span>
-<img id="imagenModal">
-<a id="btnDescargar" class="descargar" download>⬇ Descargar imagen</a>
-</div>
-<section class="aliados">
-  <h3>Enlaces recomendados</h3>
-
-  <div class="aliados-logos">
-
-    <a href="https://worldarcherymexico.com/" target="_blank">
-      <img src="images/aliados/world-archery-mexico.png" alt="World Archery México">
-    </a>
-
-    <a href="https://www.ianseo.net/" target="_blank">
-      <img src="images/aliados/ianseo.png" alt="IANSEO">
-    </a>
-
-    <a href="https://www.gob.mx/conade" target="_blank">
-      <img src="images/aliados/conade.png" alt="CONADE">
-    </a>
-
-    <a href="https://deportecdjuarez.gob.mx/" target="_blank">
-      <img src="images/aliados/imdej.png" alt="IMDEJ">
-    </a>
-
-  </div>
-</section>
-
-<script defer src="script.js"></script>
-  
 </body>
 </html>
-
