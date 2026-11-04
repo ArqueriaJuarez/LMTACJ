@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atletas | LMTACJ</title>
+    <title>LMTACJ | Liga Municipal de Tiro con Arco</title>
     
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     
     <style>
+        /* === VARIABLES DE COLOR === */
         :root {
             --bg-color: #0f172a;       
             --nav-bg: #020617;         
@@ -20,35 +22,278 @@
             --text-muted: #94a3b8;     
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-light); }
+        /* === RESET BÁSICO === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-        header { background-color: rgba(2, 6, 23, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; max-width: 1200px; margin: 0 auto; }
-        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .logo img { width: 45px; height: auto; }
-        .logo span { color: var(--text-light); font-size: 1.2rem; font-weight: 900; letter-spacing: 1px; }
-        .logo span b { color: var(--primary); }
-        
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s ease; }
-        .nav-links a:hover { color: var(--primary); }
-        
-        .seccion { padding: 120px 20px 80px 20px; background-color: var(--bg-color); }
-        .contenedor { max-width: 1200px; margin: 0 auto; }
-        .titulo-seccion { font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: var(--text-light); }
-        .titulo-seccion span { color: var(--primary); }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
 
-        .grid-noticias { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .noticia-card { background-color: var(--nav-bg); border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); border: 1px solid rgba(56, 189, 248, 0.1); }
-        .noticia-img { height: 300px; }
-        .noticia-img img { width: 100%; height: 100%; object-fit: cover; }
-        .noticia-contenido { padding: 25px; text-align: center; }
-        .noticia-contenido h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 15px; }
-        
-        .btn-leer { color: var(--text-light); text-decoration: none; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 8px; transition: color 0.3s ease; }
-        .btn-leer:hover { color: var(--primary); }
+        /* === NAVEGACIÓN (HEADER) === */
+        header {
+            background-color: rgba(2, 6, 23, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+        }
 
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 45px;
+            height: auto;
+        }
+
+        .logo span {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span b {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* === ESTILOS GENERALES DE SECCIONES === */
+        .seccion {
+            padding: 80px 20px;
+            background-color: var(--bg-color);
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .titulo-seccion {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .titulo-seccion span {
+            color: var(--primary);
+        }
+
+        .subtitulo-seccion {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        /* === GRID DE NOTICIAS === */
+        .grid-noticias {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .noticia-card {
+            background-color: var(--nav-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        .noticia-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .noticia-img {
+            position: relative;
+            height: 200px;
+        }
+
+        .noticia-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .noticia-card:hover .noticia-img img {
+            transform: scale(1.05);
+        }
+
+        .noticia-fecha {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: var(--primary);
+            color: var(--nav-bg);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            z-index: 2;
+        }
+
+        .noticia-contenido {
+            padding: 25px;
+        }
+
+        .noticia-contenido h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .noticia-contenido p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn-leer {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .btn-leer:hover {
+            color: var(--primary);
+        }
+
+        .btn-leer span {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-leer:hover span {
+            transform: translateX(5px);
+        }
+
+        /* === SECCIÓN HERO (PORTADA) === */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(2, 6, 23, 0.85), rgba(15, 23, 42, 0.95)), 
+                        url('https://images.unsplash.com/photo-1596409890479-7c9802421319?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-logo {
+            width: 150px;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.3));
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--nav-bg);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.6);
+        }
+
+        /* === RESPONSIVO === */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1rem; }
+            .hero-logo { width: 120px; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         .menu-btn { display: none; background: none; border: none; color: var(--primary); font-size: 1.8rem; cursor: pointer; }
         @media (max-width: 768px) {
             .menu-btn { display: block; }
@@ -59,49 +304,92 @@
 </head>
 <body>
 
+    <!-- MENÚ DE NAVEGACIÓN -->
     <header>
         <nav class="navbar">
-            <a href="index.html" class="logo">
+            <a href="#" class="logo">
                 <img src="Logo Circulo.png" alt="Logo LMTACJ">
                 <span>Arquería <b>Juárez</b></span>
             </a>
             <button class="menu-btn" id="menu-btn"><i class="fa-solid fa-bars"></i></button>
             <div class="nav-links">
-                <a href="index.html#inicio">Inicio</a>
-                <a href="index.html#noticias">Noticias</a>
-                <a href="index.html#galeria">Galería</a>
-                <a href="atletas.html" style="color: var(--primary);">Atletas</a>
-                <a href="index.html#clubes">Clubes</a>
+                <a href="#inicio">Inicio</a>
+                <a href="#noticias">Noticias</a>
+                <a href="#galeria">Galería</a>
+                <a href="atletas.html">Atletas</a>
+                <a href="#clubes">Clubes</a>
             </div>
         </nav>
     </header>
 
-    <section id="atletas" class="seccion">
+    <!-- PORTADA (HERO) -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <img src="Logo Circulo.png" alt="Logo Liga Municipal de Tiro con Arco" class="hero-logo">
+            <h1>Pasión por la <span>Arquería</span> en Ciudad Juárez</h1>
+            <p>Apoyamos en la formación de atletas con disciplina, respeto y excelencia deportiva. Únete a la Liga Municipal de Tiro con Arco y eleva tu nivel al máximo.</p>
+            <a href="#noticias" class="btn-primary">Últimas Noticias</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE NOTICIAS -->
+    <section id="noticias" class="seccion">
         <div class="contenedor">
-            <h2 class="titulo-seccion">Nuestros <span>Atletas</span></h2>
-            <div class="grid-noticias">
+            <h2 class="titulo-seccion">📰 Noticias <span>Destacadas</span></h2>
+            <p class="subtitulo-seccion">Entérate de los últimos eventos, torneos y avisos de la liga.</p>
+            
+            <div class="grid-noticias" id="contenedor-noticias">
+                
                 <article class="noticia-card">
-                    <div class="noticia-img"><img src="images/atletas/juan.jpg" alt="Juan Pérez"></div>
+                    <div class="noticia-img">
+                        <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=800&auto=format&fit=crop" alt="Estatal CONADE">
+                        <span class="noticia-fecha">21 Feb, 2026</span>
+                    </div>
                     <div class="noticia-contenido">
-                        <h3>Juan Pérez</h3>
-                        <a href="fichas/atleta-juan-perez.html" class="btn-leer">Ver ficha <span>→</span></a>
+                        <h3>Estatal de Tiro con Arco – Selectivo CONADE 2026</h3>
+                        <p>Estadio 20 de Noviembre. Asiste y apoya a nuestros atletas en su camino a la etapa nacional.</p>
+                        <a href="#" class="btn-leer">Leer más <span>→</span></a>
                     </div>
                 </article>
+
                 <article class="noticia-card">
-                    <div class="noticia-img"><img src="images/atletas/jose.jpg" alt="José Felipe Cerecedo"></div>
-                    <div class="noticia-contenido">
-                        <h3>José Felipe Cerecedo</h3>
-                        <a href="fichas/atleta-jose-felipe-cerecedo.html" class="btn-leer">Ver ficha <span>→</span></a>
+                    <div class="noticia-img">
+                        <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34f8?q=80&w=800&auto=format&fit=crop" alt="Nueva Piel 2026">
+                        <span class="noticia-fecha">15 Ene, 2026</span>
                     </div>
+                    <div class="noticia-contenido">
+                        <h3>Nueva Piel 2026</h3>
+                        <p>Presentamos los nuevos uniformes oficiales de la Liga Municipal. Conoce los diseños de esta temporada.</p>
+                        <a href="#" class="btn-leer">Leer más <span>→</span></a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CLUBES -->
+    <section id="clubes" class="seccion">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Clubes <span>Afiliados</span></h2>
+            <div class="grid-noticias">
+                <article class="noticia-card" style="text-align:center; padding:20px;">
+                    <img src="images/Mika.png" alt="MiKA Archery Club" style="width:100px; height:100px; object-fit:contain;">
+                    <h3 style="margin-top:15px; color:var(--primary);">MiKA Archery Club</h3>
+                </article>
+                <article class="noticia-card" style="text-align:center; padding:20px;">
+                    <img src="images/Sweetspot.png" alt="Sweet Spot" style="width:100px; height:100px; object-fit:contain;">
+                    <h3 style="margin-top:15px; color:var(--primary);">Sweet Spot</h3>
+                </article>
+                <article class="noticia-card" style="text-align:center; padding:20px;">
+                    <img src="images/Avila.png" alt="Avila Archery Club" style="width:100px; height:100px; object-fit:contain;">
+                    <h3 style="margin-top:15px; color:var(--primary);">Avila Archery Club</h3>
                 </article>
             </div>
         </div>
     </section>
 
-    <script>
-        document.getElementById('menu-btn').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('activo');
-        });
-    </script>
+    <!-- Scripts y cierre del cuerpo de la página -->
+    <script defer src="script.js"></script>
 </body>
 </html>
