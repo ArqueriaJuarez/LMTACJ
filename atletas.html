@@ -1,30 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Atletas – Liga Municipal de Tiro con Arco</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atletas | LMTACJ</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;       
+            --nav-bg: #020617;         
+            --primary: #38bdf8;        
+            --text-light: #f8fafc;     
+            --text-muted: #94a3b8;     
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-light); }
+
+        header { background-color: rgba(2, 6, 23, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(56, 189, 248, 0.2); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; max-width: 1200px; margin: 0 auto; }
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo img { width: 45px; height: auto; }
+        .logo span { color: var(--text-light); font-size: 1.2rem; font-weight: 900; letter-spacing: 1px; }
+        .logo span b { color: var(--primary); }
+        
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--primary); }
+        
+        .seccion { padding: 120px 20px 80px 20px; background-color: var(--bg-color); }
+        .contenedor { max-width: 1200px; margin: 0 auto; }
+        .titulo-seccion { font-size: 2.5rem; text-align: center; margin-bottom: 50px; color: var(--text-light); }
+        .titulo-seccion span { color: var(--primary); }
+
+        .grid-atletas { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .atleta-card { background-color: var(--nav-bg); border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); border: 1px solid rgba(56, 189, 248, 0.1); text-align: center; transition: transform 0.3s ease; }
+        .atleta-card:hover { transform: translateY(-10px); border-color: rgba(56, 189, 248, 0.4); }
+        
+        .atleta-img { height: 300px; width: 100%; overflow: hidden; }
+        .atleta-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .atleta-card:hover .atleta-img img { transform: scale(1.05); }
+        
+        .atleta-contenido { padding: 25px; }
+        .atleta-contenido h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 15px; }
+        
+        .btn-leer { background-color: var(--primary); color: var(--nav-bg); padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-flex; align-items: center; gap: 8px; transition: background 0.3s ease; }
+        .btn-leer:hover { background-color: #0ea5e9; }
+
+        .menu-btn { display: none; background: none; border: none; color: var(--primary); font-size: 1.8rem; cursor: pointer; }
+        @media (max-width: 768px) {
+            .menu-btn { display: block; }
+            .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; background-color: var(--nav-bg); padding: 20px 0; text-align: center; border-bottom: 1px solid var(--primary); }
+            .nav-links.activo { display: flex; }
+        }
+    </style>
 </head>
+<body>
 
-<body style="background:#0f172a;color:white;text-align:center;">
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="Logo Circulo.png" alt="Logo LMTACJ">
+                <span>Arquería <b>Juárez</b></span>
+            </a>
+            <button class="menu-btn" id="menu-btn"><i class="fa-solid fa-bars"></i></button>
+            <div class="nav-links">
+                <a href="index.html#inicio">Inicio</a>
+                <a href="index.html#noticias">Noticias</a>
+                <a href="index.html#galeria">Galería</a>
+                <!-- La pestaña actual se resalta en azul -->
+                <a href="atletas.html" style="color: var(--primary);">Atletas</a>
+                <a href="index.html#clubes">Clubes</a>
+            </div>
+        </nav>
+    </header>
 
-<h1>🏹 Atletas de la Liga Municipal</h1>
-<a href="index.html">⬅ Volver</a>
+    <!-- SECCIÓN ATLETAS -->
+    <section id="atletas" class="seccion">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Nuestros <span>Atletas</span></h2>
+            
+            <div class="grid-atletas">
+                
+                <!-- Tarjeta Atleta 1 -->
+                <article class="atleta-card">
+                    <div class="atleta-img">
+                        <!-- Reemplaza el src con la URL de Postimages de Juan -->
+                        <img src="images/atletas/juan.jpg" alt="Juan Pérez">
+                    </div>
+                    <div class="atleta-contenido">
+                        <h3>Juan Pérez</h3>
+                        <a href="fichas/atleta-juan-perez.html" class="btn-leer">Ver ficha <span>→</span></a>
+                    </div>
+                </article>
 
-<div class="atletas-destacados">
+                <!-- Tarjeta Atleta 2 -->
+                <article class="atleta-card">
+                    <div class="atleta-img">
+                        <!-- Reemplaza el src con la URL de Postimages de José -->
+                        <img src="images/atletas/jose.jpg" alt="José Felipe Cerecedo">
+                    </div>
+                    <div class="atleta-contenido">
+                        <h3>José Felipe Cerecedo</h3>
+                        <a href="fichas/atleta-jose-felipe-cerecedo.html" class="btn-leer">Ver ficha <span>→</span></a>
+                    </div>
+                </article>
 
-  <div class="atleta-card">
-    <img src="images/atletas/juan.jpg">
-    <h3>Juan Pérez</h3>
-    <a href="fichas/atleta-juan-perez.html">
-      <button>Ver ficha</button>
-    </a>
-  </div>
+                <!-- Puedes copiar y pegar el bloque <article> para agregar más atletas -->
 
-  <!-- Copias más atletas aquí -->
+            </div>
+        </div>
+    </section>
 
-</div>
-
+    <!-- Script para el menú móvil -->
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('activo');
+        });
+    </script>
 </body>
 </html>
