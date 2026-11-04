@@ -103,3 +103,6 @@ function actualizarCarrusel(){
     dots[indiceSlide].classList.add("active");
   }
 }
+document.getElementById('menu-btn').addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.toggle('activo');
+});
