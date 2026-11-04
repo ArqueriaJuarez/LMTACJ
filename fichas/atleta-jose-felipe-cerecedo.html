@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Felipe Cerecedo | LMTACJ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --nav-bg: #020617;
+            --primary: #38bdf8;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-light); padding-bottom: 40px; }
+        
+        .navbar { background-color: var(--nav-bg); padding: 15px 5%; border-bottom: 1px solid rgba(56,189,248,0.2); text-align: left; }
+        .btn-volver { color: var(--primary); text-decoration: none; font-weight: 700; font-size: 1rem; }
+        
+        .ficha-contenedor { max-width: 900px; margin: 40px auto; padding: 30px; background: var(--nav-bg); border-radius: 15px; border: 1px solid rgba(56,189,248,0.2); }
+        .perfil-header { display: flex; flex-wrap: wrap; gap: 30px; align-items: center; margin-bottom: 30px; }
+        .perfil-img { width: 150px; height: 150px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; }
+        .perfil-info h1 { font-size: 2.2rem; color: var(--primary); margin-bottom: 15px; }
+        .perfil-datos p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 8px; }
+        .perfil-datos strong { color: var(--text-light); }
+        
+        .seccion-datos { margin-bottom: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .seccion-datos h2 { color: var(--primary); font-size: 1.5rem; margin-bottom: 20px; }
+        
+        .lista-logros { list-style: none; }
+        .lista-logros li { margin-bottom: 12px; padding-left: 30px; position: relative; font-size: 1.05rem; color: var(--text-light); }
+        .lista-logros li::before { content: "🏆"; position: absolute; left: 0; font-size: 1.2rem; }
+        
+        .galeria-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .galeria-grid img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; border: 1px solid rgba(56,189,248,0.2); transition: transform 0.3s ease; }
+        .galeria-grid img:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../index.html" class="btn-volver">← Volver a Inicio</a>
+    </nav>
 
+    <div class="ficha-contenedor">
+        <div class="perfil-header">
+            <!-- Sustituye la URL con el enlace directo de Postimages de la foto de perfil -->
+            <img src="URL_FOTO_PERFIL_AQUI" alt="José Felipe Cerecedo" class="perfil-img">
+            <div class="perfil-info">
+                <h1>José Felipe Cerecedo</h1>
+                <div class="perfil-datos">
+                    <p><strong>Edad:</strong> 18 años</p>
+                    <p><strong>Fecha de Nacimiento:</strong> 15 de Octubre de 2008</p>
+                    <p><strong>Club:</strong> MiKA Archery Club</p>
+                    <p><strong>Escuela:</strong> Prepa Tec</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion-datos">
+            <h2>Principales Logros</h2>
+            <ul class="lista-logros">
+                <li>Medalla de Oro - Torneo Municipal Enero 2026</li>
+                <li>Clasificación Estatal CONADE Chihuahua 2026</li>
+                <li>Récord Personal: 650 puntos (Arco Recurvo)</li>
+            </ul>
+        </div>
+
+        <div class="seccion-datos">
+            <h2>Galería en el Campo</h2>
+            <div class="galeria-grid">
+                <!-- Sustituye estas URLs con las fotos de acción del arquero -->
+                <img src="URL_FOTO_1_AQUI" alt="José tirando en campo">
+                <img src="URL_FOTO_2_AQUI" alt="Premiación">
+                <img src="URL_FOTO_3_AQUI" alt="José con su equipo">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
